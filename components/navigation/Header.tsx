@@ -3,7 +3,7 @@
 import { useParams, usePathname } from 'next/navigation'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
+// import Logo from '@/data/logo.svg'
 import Link from '../mdxcomponents/Link'
 import AuthorsMenu from './AuthorsMenu'
 import MobileNav from './MobileNav'
@@ -25,9 +25,9 @@ const Header = () => {
         <div>
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
-              <div className="mr-3">
+              {/* <div className="mr-3">
                 <Logo />
-              </div>
+              </div> */}
               {typeof siteMetadata.headerTitle === 'string' ? (
                 <div className="hidden h-6 text-2xl font-semibold sm:block">
                   {siteMetadata.headerTitle}

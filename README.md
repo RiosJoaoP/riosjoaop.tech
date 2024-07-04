@@ -577,13 +577,13 @@ Metadata type = {
 }
 /* Add or modify the title here depending on the chosen languages: */
 export const maintitle: Metadata = {
-   en: 'Next.js i18n Starter Blog',
-  fr: 'Starter Blog Next.js i18n',
+   pt: 'Blog Pessoal - João Paulo Rios',
+  en: "João Paulo Rios' Pesonal Blog",
 }
 /* Add or modify the description here depending on the chosen languages: */
 export const maindescription: Metadata = {
-   en: 'A blog created with Next.js, i18n and Tailwind.css',
-  fr: 'Un blog crée avec tailwind, i18n et next.js',
+   pt: 'Portuguese description',
+  en: 'English description',
 }
 ```
 
