@@ -26,8 +26,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       theme === 'dark' ||
       (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
+      setTheme('dark')
       document.documentElement.classList.add('dark')
     } else {
+      setTheme('light')
       document.documentElement.classList.remove('dark')
     }
   }, [theme])
