@@ -3,8 +3,8 @@ type Metadata = {
 }
 
 export const maintitle: Metadata = {
-  pt: 'RiosJoaoP - Blog Pessoal',
-  en: "RiosJoaoP's Personal Blog",
+  pt: 'RiosJoaoP',
+  en: "RiosJoaoP",
 }
 
 export const maindescription: Metadata = {
