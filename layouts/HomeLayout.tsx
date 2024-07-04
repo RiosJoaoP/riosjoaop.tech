@@ -38,7 +38,7 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {t('description1')}
-            <span className="text-gray-900 dark:text-gray-100 font-bold">{t('descriptionhighlight')}</span>
+            <span className="text-gray-500 dark:text-gray-100 font-bold">{t('descriptionhighlight')}</span>
             {t('description2')}
           </p>
         </div>
