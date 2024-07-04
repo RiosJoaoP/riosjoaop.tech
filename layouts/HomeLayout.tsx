@@ -14,6 +14,9 @@ interface Post {
   tags: string[]
   language: string
   draft?: boolean
+  readingTime?: {
+    text?: string
+  }
 }
 
 interface HomeProps {
@@ -45,7 +48,7 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
             .filter((p) => p.language === locale)
             .slice(0, MAX_DISPLAY)
             .map((post) => {
-              const { slug, date, title, summary, tags, language } = post
+              const { slug, date, title, summary, tags, language, readingTime } = post
               if (language === locale) {
                 return (
                   <li key={slug} className="py-12">
@@ -55,6 +58,10 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
                           <dt className="sr-only">{t('pub')}</dt>
                           <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                             <time dateTime={date}>{formatDate(date, locale)}</time>
+                          </dd>
+                          <dt className="sr-only">Reading time</dt>
+                          <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                            <span>{readingTime?.text} {t("read")}</span>
                           </dd>
                         </dl>
                         <div className="space-y-5 xl:col-span-3">

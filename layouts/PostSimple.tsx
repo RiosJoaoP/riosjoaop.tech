@@ -15,6 +15,7 @@ import { PostSeriesBox } from '@/components/seriescard'
 import Share from '@/components/share'
 import { Toc } from 'pliny/mdx-plugins'
 import Sidetoc from '@/components/sidetoc'
+import { capitalizeFirstLetter } from '@/components/util/capitalizeFirstLetter'
 
 interface PostSimpleProps {
   content: CoreContent<Blog>
@@ -31,7 +32,7 @@ export default async function PostLayout({
   children,
   params: { locale },
 }: PostSimpleProps) {
-  const { slug, date, title, language, series, toc } = content
+  const { slug, date, title, language, series, toc, readingTime } = content
   const tableOfContents: Toc = toc as unknown as Toc
   const { t } = await createTranslation(locale, 'home')
   return (
@@ -45,9 +46,17 @@ export default async function PostLayout({
               <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
                 <dl>
                   <div>
-                    <dt className="sr-only">{t('pub')}</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dt className="inline text-gray-500 dark:text-gray-400">{t('pub')} </dt>
+                    <dd className="inline text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date, language)}</time>
+                    </dd>
+                    <span className="inline text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      {' '}
+                      &#x2022;{' '}
+                    </span>
+                    <dt className="sr-only inline">{t("readingtime")}</dt>
+                    <dd className="inline text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <span>{readingTime.text} {t("read")}</span>
                     </dd>
                   </div>
                 </dl>

@@ -45,7 +45,7 @@ export default async function PostLayout({
   children,
   params: { locale },
 }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, language, series, toc } = content
+  const { filePath, path, slug, date, title, tags, language, series, toc, readingTime } = content
   const basePath = path.split('/')[0]
   const { t } = await createTranslation(locale, 'home')
   const tableOfContents: Toc = toc as unknown as Toc
@@ -60,11 +60,19 @@ export default async function PostLayout({
               <div className="space-y-1 text-center">
                 <dl className="space-y-10">
                   <div>
-                    <dt className="sr-only">{t('pub')}</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dt className="inline text-gray-500 dark:text-gray-400">{t('pub')} </dt>
+                    <dd className="inline text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>
                         {new Date(date).toLocaleDateString(language, postDateTemplate)}
                       </time>
+                    </dd>
+                    <span className="inline text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      {' '}
+                      &#x2022;{' '}
+                    </span>
+                    <dt className="sr-only">{t("readingtime")} </dt>
+                    <dd className="inline text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <span>{readingTime.text} {t("read")}</span>
                     </dd>
                   </div>
                 </dl>

@@ -47,7 +47,12 @@ const icon = fromHtmlIsomorphic(
 )
 
 const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  readingTime: { type: 'json', resolve: (doc) => {
+      let reading = readingTime(doc.body.raw)
+      reading.text = reading.text.replace(" read", "")
+      return reading
+    }
+  },
   slug: {
     type: 'string',
     resolve: (doc) => {
