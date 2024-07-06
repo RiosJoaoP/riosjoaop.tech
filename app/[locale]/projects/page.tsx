@@ -28,8 +28,19 @@ export default async function Projects({ params: { locale } }: ProjectsProps) {
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">{t('description')}</p>
         </div>
         <div className="container py-12">
+            <h3 className="mb-4 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
+              {t('work')}
+            </h3>
           <div className="-m-4 flex flex-wrap">
-            <Project />
+            <Project params={{projectType: 'work'}}/>
+          </div>
+        </div>
+        <div className="container py-12">
+            <h3 className="mb-4 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
+            {t('personal')}
+            </h3>
+          <div className="-m-4 flex flex-wrap">
+            <Project params={{projectType: 'personal'}}/>
           </div>
         </div>
       </div>
