@@ -10,13 +10,15 @@ type ProjectProps = {
 }
 
 const Project = ({ params: { projectType } }: ProjectProps) => {
-  const locale = useParams()?.locale as LocaleTypes
+  const { locale } = useParams() as { locale: LocaleTypes } // Acessando corretamente o locale
   const projectArray = projectsData[locale]
-  
+
+  console.log("AQUI!", projectType)
+
   return (
-  projectArray.filter(({ type }) => type === projectType).length > 0 ? (
+    projectArray.filter(({ type }) => type === projectType).length > 0 ? (
       <>
-        {projectArray.filter(({ type }) => type === type).map((project) => (
+        {projectArray.filter(({ type }) => type === projectType).map((project) => (
           <Card
             key={project.title}
             title={project.title}

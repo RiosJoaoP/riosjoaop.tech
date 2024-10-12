@@ -19,7 +19,7 @@ const siteMetadata = {
   // youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/riosjoaop/',
   // threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com/rios.joaop/',
+  instagram: 'https://www.instagram.com/riosjoaop.tech/',
   locale: 'pt-BR',
   multiauthors: false,
   analytics: {
